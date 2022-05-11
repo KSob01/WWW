@@ -1,0 +1,1 @@
+/home/katar/.asdf/installs/python/2.7.18/lib/python2.7/stat.py
