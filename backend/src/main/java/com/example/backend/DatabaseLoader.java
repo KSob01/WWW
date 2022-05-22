@@ -6,7 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
-    private final UserRepository  repository;
+
+    private final UserRepository repository;
+
     @Autowired
     public DatabaseLoader(UserRepository repository) {
         this.repository = repository;
@@ -14,6 +16,6 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        this.repository.save(new User("Frodo", "Baggins", "ring bearer"));
+        this.repository.save(new MyUser("Frodo", "Baggins", "ring bearer"));
     }
 }

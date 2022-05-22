@@ -6,16 +6,15 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class User {
-    private @Id @GeneratedValue
-    Long id;
+public class MyUser {
+    private @Id @GeneratedValue  Long id;
     private String firstName;
     private String lastName;
     private String description;
 
-    protected User() {}
+    public MyUser() {}
 
-    public User(String firstName, String lastName, String description) {
+    public MyUser(String firstName, String lastName, String description) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.description = description;
@@ -25,11 +24,11 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User employee = (User) o;
-        return Objects.equals(id, employee.id) &&
-                Objects.equals(firstName, employee.firstName) &&
-                Objects.equals(lastName, employee.lastName) &&
-                Objects.equals(description, employee.description);
+        MyUser user = (MyUser) o;
+        return Objects.equals(id, user.id) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(description, user.description);
     }
 
     @Override
