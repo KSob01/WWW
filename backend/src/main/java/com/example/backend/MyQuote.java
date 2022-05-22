@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Objects;
 
+
 @Entity
 public class MyQuote {
     private @Id
@@ -12,7 +13,7 @@ public class MyQuote {
     Long id;
     private String quote;
     private String author;
-
+    private String category;
     public String getCategory() {
         return category;
     }
@@ -21,15 +22,16 @@ public class MyQuote {
         this.category = category;
     }
 
-    private String category;
+
 
     public MyQuote() {
 
     }
 
-    public MyQuote(String quote, String author) {
+    public MyQuote(String quote, String author,String category) {
         this.quote = quote;
         this.author = author;
+        this.category = category;
     }
 
     public Long getId() {

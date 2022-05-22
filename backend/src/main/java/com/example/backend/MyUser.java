@@ -10,14 +10,12 @@ public class MyUser {
     private @Id @GeneratedValue  Long id;
     private String firstName;
     private String lastName;
-    private String description;
 
     public MyUser() {}
 
-    public MyUser(String firstName, String lastName, String description) {
+    public MyUser(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.description = description;
     }
 
     @Override
@@ -27,14 +25,13 @@ public class MyUser {
         MyUser user = (MyUser) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(firstName, user.firstName) &&
-                Objects.equals(lastName, user.lastName) &&
-                Objects.equals(description, user.description);
+                Objects.equals(lastName, user.lastName);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, firstName, lastName, description);
+        return Objects.hash(id, firstName, lastName);
     }
 
     public Long getId() {
@@ -61,13 +58,6 @@ public class MyUser {
         this.lastName = lastName;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Override
     public String toString() {
@@ -75,7 +65,6 @@ public class MyUser {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", description='" + description + '\'' +
                 '}';
     }
 }
