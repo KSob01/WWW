@@ -18,7 +18,7 @@ import org.apache.commons.csv.CSVRecord;
 
 public class QuoteHelper {
     public static String TYPE = "text/csv";
-    static String[] HEADERS = {"Id", "Quote", "Author", "Main Tag"};
+    static String[] HEADERS = {"Id", "quote", "author", "tags"};
 
     public static List<MyQuote> csvToQuotes(InputStream is) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
