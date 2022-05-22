@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.InputStream;
+import java.util.List;
+
 @Component
 public class DatabaseLoader implements CommandLineRunner {
 
@@ -19,7 +22,13 @@ public class DatabaseLoader implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         this.userRepository.save(new MyUser("Frodo", "Baggins"));
-        this.quoteRepository.save(new MyQuote("Give me that ring","Frodo","film"));
+        //this.quoteRepository.save(new MyQuote("Give me that ring","Frodo","film"));
         this.userRepository.save(new MyUser("Kate","Sob"));
+        InputStream is = getClass().getClassLoader().getResourceAsStream("my_quotes.csv");
+        List<MyQuote> l = QuoteHelper.csvToQuotes(is);
+        for(MyQuote quote : l){
+            this.quoteRepository.save(quote);
+        }
+
     }
 }

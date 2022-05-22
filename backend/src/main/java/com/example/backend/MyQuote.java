@@ -3,17 +3,24 @@ package com.example.backend;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
 import java.util.Objects;
 
 
 @Entity
+@Table(name="quotes")
 public class MyQuote {
     private @Id
-    @GeneratedValue
+    @Column(name = "Id")
     Long id;
+    @Column(name = "Quote")
     private String quote;
+    @Column(name = "Author")
     private String author;
+    @Column(name = "Main tag")
     private String category;
+
     public String getCategory() {
         return category;
     }
@@ -23,12 +30,11 @@ public class MyQuote {
     }
 
 
-
     public MyQuote() {
 
     }
 
-    public MyQuote(String quote, String author,String category) {
+    public MyQuote(String quote, String author, String category) {
         this.quote = quote;
         this.author = author;
         this.category = category;
