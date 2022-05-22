@@ -9,31 +9,17 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name="quotes")
 public class MyQuote {
-    private @Id
-    @Column(name = "Id")
+    private @Id @GeneratedValue
     Long id;
-    @Column(name = "Quote")
     private String quote;
-    @Column(name = "Author")
     private String author;
-    @Column(name = "Main tag")
     private String category;
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
 
     public MyQuote() {
 
     }
-
     public MyQuote(String quote, String author, String category) {
         this.quote = quote;
         this.author = author;
@@ -64,6 +50,12 @@ public class MyQuote {
         this.author = author;
     }
 
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     @Override
     public String toString() {
