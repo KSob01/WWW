@@ -21,8 +21,6 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        this.userRepository.save(new MyUser("Frodo", "Baggins"));
-        this.userRepository.save(new MyUser("Kate","Sob"));
         InputStream is = getClass().getClassLoader().getResourceAsStream("my_quotes.csv");
         List<MyQuote> l = QuoteHelper.csvToQuotes(is);
         for(MyQuote quote : l){

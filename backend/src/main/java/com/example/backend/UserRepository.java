@@ -2,5 +2,5 @@ package com.example.backend;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<MyQuote,Long> {
+public interface UserRepository extends JpaRepository<MyUser,Long> {
 }

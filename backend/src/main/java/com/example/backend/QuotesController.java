@@ -8,21 +8,21 @@ import java.util.List;
 
 @RestController
 public class QuotesController {
-    private final QuoteRepository repository;
+    private final QuoteRepository repositoryQuotes;
 
-    public QuotesController(QuoteRepository repository) {
-        this.repository = repository;
+    public QuotesController(QuoteRepository repositoryQuotes) {
+        this.repositoryQuotes = repositoryQuotes;
     }
 
     @GetMapping("/quotes")
-    List<MyQuote> all() {
-        return repository.findAll();
+    List<MyQuote> allQuotes() {
+        return repositoryQuotes.findAll();
     }
 
     @GetMapping("/quote/{id}")
-    MyQuote one(@PathVariable Long id) {
-
-        return repository.findById(id)
+    MyQuote oneQuote(@PathVariable Long id) {
+        return repositoryQuotes.findById(id)
                 .orElseThrow(() -> new MyQuoteNotFoundException(id));
     }
+
 }
