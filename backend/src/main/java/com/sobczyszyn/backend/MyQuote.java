@@ -1,10 +1,8 @@
-package com.example.backend;
+package com.sobczyszyn.backend;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
 import java.util.Objects;
 
 

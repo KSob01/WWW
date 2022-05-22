@@ -1,4 +1,4 @@
-package com.example.backend;
+package com.sobczyszyn.backend;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

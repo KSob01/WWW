@@ -1,4 +1,4 @@
-package com.example.backend;
+package com.sobczyszyn.backend.exceptions;
 
 public class MyQuoteNotFoundException extends RuntimeException {
     public MyQuoteNotFoundException(Long id){
