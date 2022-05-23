@@ -1,5 +1,5 @@
 import ApiManager from "./ApiManager";
-import React, { Component } from 'react';
+import React, {Component, useEffect} from 'react';
 
 
 
@@ -13,8 +13,8 @@ export default class QuoteApp extends Component{
     }
     callApi() {
         ApiManager.getInstance().getByID(1).then((result) => {
-            this.setState({ resultArr: result });
-        });
+            this.setState({ resultArr: result});
+        }).catch((err)=>console.log(err));
     }
 render() {
     this.callApi()

@@ -2,25 +2,20 @@ import {Component} from "react";
 
 export class ApiManager extends Component {
     static myInstance = null;
-
+    baseURL = "http://localhost:8080"
     static getInstance() {
         return new ApiManager();
     }
     async getAll() {
-
-        fetch(this.baseURL + '/quotes').then(
-            response => {return response.json();}
-        ).catch( error => {
-            console.error(`fetch operation failed: ${error.message}`);
-        });
+        // return ["ALA ","MA KOTA"];
+        const res = await fetch(this.baseURL + '/quotes');
+        const json = await res.json();
+        console.log(json);
     }
     async getByID (id){
-        const headers = {'allowed-origin':'*'}
-        fetch(this.baseURL +'/quote/'+id, { headers }).then(
-            response => {return response.json();}
-        ).catch( error => {
-            console.error(`fetch operation failed: ${error.message}`);
-        });
+        const res = await fetch(this.baseURL +'/quote/'+id);
+        const json = await res.json();
+        console.log(json);
     }
 }
 export default ApiManager
