@@ -7,15 +7,15 @@ export class ApiManager extends Component {
         return new ApiManager();
     }
     async getAll() {
-        // return ["ALA ","MA KOTA"];
         const res = await fetch(this.baseURL + '/quotes');
         const json = await res.json();
         console.log(json);
+        return json;
     }
     async getByID (id){
         const res = await fetch(this.baseURL +'/quote/'+id);
-        const json = await res.json();
-        console.log(json);
+        return  await res.json();
+
     }
 }
 export default ApiManager
