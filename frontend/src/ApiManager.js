@@ -1,11 +1,4 @@
 import {Component} from "react";
-// import {api} from "./http-common";
-// const basePath = 'api';
-// let config = {
-//     headers: {
-//         'Content-Type': 'application/json',
-//     }
-// }
 
 export class ApiManager extends Component {
     static myInstance = null;

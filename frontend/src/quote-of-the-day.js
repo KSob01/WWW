@@ -2,6 +2,8 @@ import ApiManager from "./ApiManager";
 import React, { Component } from 'react';
 
 
+
+
 export default class QuoteApp extends Component{
     constructor(props) {
         super(props)
