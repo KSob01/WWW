@@ -15,7 +15,6 @@ export class ApiManager extends Component {
     async getByID (id){
         const res = await fetch(this.baseURL +'/quote/'+id);
         return  await res.json();
-
     }
 }
 export default ApiManager
