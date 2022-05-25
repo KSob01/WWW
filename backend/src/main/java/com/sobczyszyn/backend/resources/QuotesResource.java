@@ -3,10 +3,7 @@ package com.sobczyszyn.backend.resources;
 import com.sobczyszyn.backend.MyQuote;
 import com.sobczyszyn.backend.exceptions.MyQuoteNotFoundException;
 import com.sobczyszyn.backend.repostitories.QuoteRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +27,9 @@ public class QuotesResource {
         return repositoryQuotes.findById(id)
                 .orElseThrow(() -> new MyQuoteNotFoundException(id));
     }
-
+    @CrossOrigin(origins = "*")
+    @GetMapping("/quote")
+    List<MyQuote> byCategory(@RequestParam(name = "cat") String id, @RequestParam String category){
+        return repositoryQuotes.findAll();
+    }
 }
