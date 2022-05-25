@@ -1,6 +1,11 @@
-import {useEffect, useState} from "react";
-import GetQuoteHTTP from "../../components/Quotes.module";
+import {GetQuoteHTTP} from "../../components/Quotes.module";
 
-export default function Quotes() {
-    return(GetQuoteHTTP('/quotes'))
+export default function Index() {
+    const s= GetQuoteHTTP({path: "/quotes"})
+    return (
+        <>
+            {/*{JSON.stringify(s)}*/}
+            {s.map((val, i) => <p key={i}>{val['quote']}</p>)}
+        </>
+    );
 }
