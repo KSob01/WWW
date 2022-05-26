@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
+import QuotesByCategory from "./quotes-category";
+import Quote from "./quote";
+import QuotesByCategories from "./quotes-categories";
 
 export async function getStaticProps() {
     const allPostsData = {"name":"KAsia1"}
@@ -24,11 +27,11 @@ export default function Home({allPostsData}) {
                 <h1 className={styles.title}>
                     Quotes
                 </h1>
-                <h1 className={styles.title}>
-                    <Link href="/quotes/index">
-                        <a>{allPostsData.name}</a>
-                    </Link>
-                </h1>
+                <p>
+                    {/*<QuotesByCategory category={"books"}/>*/}
+                    {/*<Quote id={4}/>*/}
+                    <QuotesByCategories categories={["humor"]}/>
+                </p>
             </main>
         </div>
 

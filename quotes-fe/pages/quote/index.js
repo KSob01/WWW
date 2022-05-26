@@ -1,8 +1,8 @@
 
-import {GetQuoteHTTP} from "../../components/Quotes.module";
+import {GetQuoteHTTP} from "../../components/QuotesGet";
 
-export default function Quotes() {
-    const s= GetQuoteHTTP( "/quote/1")
+export default function Quote({id}) {
+    const s= GetQuoteHTTP( `/quote/${id}`)
     return (
         <>
             {s['quote']}{s['author']}

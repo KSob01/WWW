@@ -1,6 +1,6 @@
-import {GetQuoteHTTP} from "../../components/Quotes.module";
+import {GetQuoteHTTP} from "../../components/QuotesGet";
 
-export default function Index() {
+export default function Quotes() {
     const s= GetQuoteHTTP("/quotes")
     return (
         <>
