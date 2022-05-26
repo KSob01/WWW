@@ -29,8 +29,9 @@ export default function Home({allPostsData}) {
                 </h1>
                 <p>
                     {/*<QuotesByCategory category={"books"}/>*/}
-                    {/*<Quote id={4}/>*/}
-                    <QuotesByCategories categories={["humor"]}/>
+                    <Quote id={4}/>
+                    {/*<QuotesByCategories categories={["humor"]}/>*/}
+
                 </p>
             </main>
         </div>
