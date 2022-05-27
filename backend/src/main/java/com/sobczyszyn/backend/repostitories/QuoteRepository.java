@@ -8,18 +8,23 @@ import java.util.List;
 
 public interface QuoteRepository extends JpaRepository<MyQuote, Long> {
 
-    @Query("SELECT u FROM #{#entityName} u WHERE u.category = ?1")
-    List<MyQuote> findAllByCategory(String category);
-
     @Query("SELECT u FROM #{#entityName} u WHERE u.category in ?1")
     List<MyQuote> findAllByCategories(List<String> categories);
+
+    @Query("SELECT u FROM #{#entityName} u order by u.quote ASC")
+    List<MyQuote> findAllASC();
+
+    @Query("SELECT u FROM #{#entityName} u order by u.quote DESC ")
+    List<MyQuote> findAllDESC();
 
     @Query("SELECT DISTINCT (u.category) FROM #{#entityName} u")
     List<String> findAllCategories();
 
-//    @Query("SELECT u FROM #{#entityName} u WHERE u.category = ?1 order by ?2")
-//    List<MyQuote> findAllByCategoryOrdered(String category, String orderColumn,String order);
+    @Query("SELECT u FROM #{#entityName} u WHERE u.category in ?1 order by u.quote ASC")
+    List<MyQuote> findAllByCategoriesASC(List<String> category);
 
-//    @Query("SELECT u FROM #{#entityName} u WHERE u.category in :#{#categories} order by u.quote")
-//    List<MyQuote> findAllByCategoriesOrdered(List<String> categories, String order);
+    @Query("SELECT u FROM #{#entityName} u WHERE u.category in ?1 order by u.quote DESC")
+    List<MyQuote> findAllByCategoriesDESC(List<String> categories);
+
+
 }
