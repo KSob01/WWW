@@ -1,5 +1,5 @@
-export default function QuoteFooter (){
-    return(
+export default function QuoteFooter() {
+    return (
         <>
             <h1>
                 Quotes - my footer

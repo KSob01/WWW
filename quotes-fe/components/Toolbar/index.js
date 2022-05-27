@@ -16,10 +16,10 @@ export default function Toolbar() {
                     setView(<Quote id={1}/>);
                 }}/>
                 <Button value="All quotes" onPress={() => {
-                    setView(<Quotes/>);
+                    setView(<Quotes order={"/ASC"}/>);
                 }}/>
                 {categories.map((val) => (<Button key={val} value={val} onPress={() => {
-                    setView(<QuotesByCategories categories={val}/>);
+                    setView(<QuotesByCategories categories={val} order={"/ASC"}/>);
                 }}/>))}
                 {/*<>*/}
                 {/*    <Dropdown*/}

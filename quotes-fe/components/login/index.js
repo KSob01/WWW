@@ -1,5 +1,5 @@
-export default function Login(){
-    return(
+export default function Login() {
+    return (
         <form action="/send-data-here" method="post">
             <label htmlFor="roll">User Name</label>
             <input

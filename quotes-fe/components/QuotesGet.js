@@ -11,7 +11,6 @@ export function GetQuoteHTTP(path) {
                 setData(res)
             })
     }, [baseURL])
-
     return data
 }
 
