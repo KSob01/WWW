@@ -1,5 +1,9 @@
-export default function Button(){
+import styles from "../../styles/Home.module.css";
+
+export default function Button({ onPress ,value}){
 return(
-    <h1>Kliknij</h1>
+    <button type="button" onClick={onPress} className={styles.card}>
+        {value}
+    </button>
 )
 }
