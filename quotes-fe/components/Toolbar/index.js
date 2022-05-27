@@ -2,11 +2,8 @@ import Button from "./Button";
 import {useState} from "react";
 import Quotes from "../../pages/quotes";
 import Quote from "../../pages/quote";
-import styles from "../../styles/Home.module.css";
 import QuotesByCategories from "../../pages/quotes-categories";
-import {GetQuoteHTTP} from "../QuotesGet";
 import QuotesAllCategories from "../../pages/quotes-all-catgories";
-import {Dropdown, Option} from "./Dropdown";
 
 export default function Toolbar() {
     const categories = QuotesAllCategories()

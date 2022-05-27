@@ -1,4 +1,3 @@
-
 import {GetQuoteHTTP} from "../../components/QuotesGet";
 
 export default function Quote({id}) {
