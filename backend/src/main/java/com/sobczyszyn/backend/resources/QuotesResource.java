@@ -37,4 +37,9 @@ public class QuotesResource {
     List<MyQuote> byCategories(@RequestParam(name = "cat") List<String> categories){
         return repositoryQuotes.findAllByCategories(categories);
     }
+    @CrossOrigin(origins = "*")
+    @GetMapping("/categories")
+    List<String> allCategories(){
+        return repositoryQuotes.findAllCategories();
+    }
 }
