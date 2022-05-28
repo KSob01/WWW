@@ -1,4 +1,4 @@
-import {GetQuoteHTTP} from "../../components/QuotesGet";
+import {GetQuoteHTTP} from "../QuotesGet";
 
 export default function QuotesByCategories({categories, order = ""}) {
     const s = GetQuoteHTTP(`/quotes-by-categories${order}?cat=${categories}`)

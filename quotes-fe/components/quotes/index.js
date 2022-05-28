@@ -1,4 +1,4 @@
-import {GetQuoteHTTP} from "../../components/QuotesGet";
+import {GetQuoteHTTP} from "../QuotesGet";
 
 export default function Quotes({order = ""}) {
     const s = GetQuoteHTTP(`/quotes${order}`)
