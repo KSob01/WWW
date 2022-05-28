@@ -4,17 +4,17 @@ export default function ToolbarWithLinks() {
     return (
         <ul>
             <li>
-                <Link href="./">
+                <Link href="/">
                     <a>HOME</a>
                 </Link>
             </li>
             <li>
-                <Link href="./all-quotes">
+                <Link href="/all-quotes">
                     <a>ALL QUOTES</a>
                 </Link>
             </li>
             <li>
-                <Link href="./quote-of-the-day">
+                <Link href="/quote-of-the-day">
                     <a>QUOTE OF THE DAY</a>
                 </Link>
             </li>
