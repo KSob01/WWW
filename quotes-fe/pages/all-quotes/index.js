@@ -1,8 +1,8 @@
 import Quotes from "../../components/quotes";
 import QuotesAllCategories from "../../components/quotes-all-catgories";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Button from "../../components/Button";
-import Quote from "../../components/quote";
+
 import QuotesByCategories from "../../components/quotes-by-categories";
 
 export default function AllQuotes() {
@@ -10,8 +10,8 @@ export default function AllQuotes() {
     const [currCategories, setCurrCategories] = useState(categories)
     const [currOrder, setCurrOrder] = useState("")
     const [view, setView] = useState(<Quotes/>);
-
     return (
+
         <>
             <title>All Quotes</title>
             <>
@@ -23,7 +23,7 @@ export default function AllQuotes() {
                         }
                     }/>
                 ))}
-                <h1>
+                <>
                     <Button value={"ASC"} onPress={
                         () => {
                             setCurrOrder("/ASC")
@@ -36,11 +36,11 @@ export default function AllQuotes() {
                             setView(<QuotesByCategories categories={currCategories} order={"/DESC"}/>)
                         }
                     }/>
-                </h1>
+                </>
 
             </>
 
-            <h1>{view}</h1>
+            <>{view}</>
         </>
 
 

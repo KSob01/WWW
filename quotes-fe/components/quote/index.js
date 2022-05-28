@@ -1,11 +1,11 @@
 import {GetQuoteHTTP} from "../QuotesGet";
-import Layout from "../Layout";
+import QuoteFrame from "../styles";
 
 export default function Quote({id}) {
     const s = GetQuoteHTTP(`/quote/${id}`)
     return (
-        <>
+        <QuoteFrame>
             {s['quote']}{s['author']}
-        </>
+        </QuoteFrame>
     )
 }
