@@ -1,12 +1,12 @@
 import Header from './QuoteHeader'
 import Footer from './QuoteFooter'
-import Toolbar from "./Toolbar";
+import ToolbarWithLinks from "./Toolbar-with-links";
 
 export default function Layout({children}) {
     return (
         <div className="content">
             <Header/>
-            <Toolbar/>
+            <ToolbarWithLinks/>
             {children}
             <Footer/>
         </div>
