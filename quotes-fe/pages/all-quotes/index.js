@@ -2,7 +2,8 @@ import QuotesAllCategories from "../../components/quotes-all-catgories";
 import {useState} from "react";
 import Button from "../../components/Button";
 import QuotesByCategories from "../../components/quotes-by-categories";
-import {catToolBar} from "../../styles/styles.module.css"
+import {catToolBar,upArrow,downArrow} from "../../styles/styles.module.css"
+import Image from "next/image";
 
 export default function AllQuotes() {
     const cat = QuotesAllCategories()
@@ -22,7 +23,7 @@ export default function AllQuotes() {
             <title>All Quotes</title>
             <ul className={catToolBar}>
                 {cat.map((val) => (
-                    <li key={val}>
+                    <li key={val} >
                         <Button value={val} onPress={
                             () => {
                                 setCurrCategories(val);
@@ -31,7 +32,7 @@ export default function AllQuotes() {
                     </li>
                 ))}
 
-                <li>
+                <li >
                     <Button value={"all quotes"} onPress={
                         () => {
                             setCurrCategories(cat);
@@ -41,16 +42,20 @@ export default function AllQuotes() {
 
 
             </ul>
-            <Button value={"ASC"} onPress={
-                () => {
-                    setCurrOrder("/ASC")
-                }
-            }/>
-            <Button value={"DESC"} onPress={
-                () => {
-                    setCurrOrder("/DESC")
-                }
-            }/>
+            <>
+                <Button value={<Image src={"/arrow_down.png"} alt="arrow" width="64" height="60" className={upArrow}/>} onPress={
+                    () => {
+                        setCurrOrder("/ASC")
+                    }
+                }/>
+                <Button value={<Image src={"/arrow_down.png"} alt="arrow" width="64" height="60" className={downArrow}/>} onPress={
+                    () => {
+                        setCurrOrder("/DESC")
+                    }
+                }/>
+            </>
+
+
 
             <>{View()}</>
         </>

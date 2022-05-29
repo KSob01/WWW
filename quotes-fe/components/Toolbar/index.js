@@ -23,7 +23,7 @@ export default function Toolbar() {
                 </li>
                 <li>
                     <Link href="/my-quotes">
-                        <Image src="/user-icon.png" alt="me" width="64" height="60"  className={userImage}/>
+                        <Image src="/user-icon.png" alt="user" width="64" height="60"  className={userImage}/>
                     </Link>
 
                 </li>
