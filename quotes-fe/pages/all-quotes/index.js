@@ -1,46 +1,56 @@
-import Quotes from "../../components/quotes";
 import QuotesAllCategories from "../../components/quotes-all-catgories";
 import {useState} from "react";
 import Button from "../../components/Button";
-
 import QuotesByCategories from "../../components/quotes-by-categories";
 
-export default function AllQuotes() {
-    const categories = QuotesAllCategories()
-    const [currCategories, setCurrCategories] = useState(categories)
-    const [currOrder, setCurrOrder] = useState("")
-    const [view, setView] = useState(<Quotes/>);
-    return (
 
+export default function AllQuotes() {
+
+    const cat = QuotesAllCategories()
+    const [currCategories, setCurrCategories] = useState(cat)
+    const [currOrder, setCurrOrder] = useState("")
+
+    const View = () => {
+        if (!currCategories[0]) {
+            return <QuotesByCategories categories={cat} order={currOrder}/>
+        }
+        return <QuotesByCategories categories={currCategories} order={currOrder}/>
+    }
+
+
+    return (
         <>
             <title>All Quotes</title>
             <>
-                {categories.map((val) => (
+                {cat.map((val) => (
                     <Button key={val} value={val} onPress={
                         () => {
-                            setView(<QuotesByCategories categories={val} order={currOrder}/>);
                             setCurrCategories(val);
                         }
                     }/>
                 ))}
                 <>
+                    <Button value={"all quotes"} onPress={
+                        () => {
+                            setCurrCategories(cat);
+                        }
+                    }/>
+
                     <Button value={"ASC"} onPress={
                         () => {
                             setCurrOrder("/ASC")
-                            setView(<QuotesByCategories categories={currCategories} order={"/ASC"}/>)
                         }
                     }/>
                     <Button value={"DESC"} onPress={
                         () => {
                             setCurrOrder("/DESC")
-                            setView(<QuotesByCategories categories={currCategories} order={"/DESC"}/>)
                         }
                     }/>
                 </>
 
             </>
 
-            <>{view}</>
+            <>{View()}</>
         </>
 
 

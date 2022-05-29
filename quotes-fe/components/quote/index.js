@@ -5,7 +5,12 @@ export default function Quote({id}) {
     const s = GetQuoteHTTP(`/quote/${id}`)
     return (
         <QuoteFrame>
-            {s['quote']}{s['author']}
+            <>
+                {s['quote']}
+                <br/>
+                {s['author']}
+            </>
+
         </QuoteFrame>
     )
 }

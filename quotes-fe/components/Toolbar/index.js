@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function ToolbarWithLinks() {
+export default function Toolbar() {
     return (
         <ul>
             <li>
