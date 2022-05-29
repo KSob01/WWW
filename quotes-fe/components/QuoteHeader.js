@@ -1,10 +1,10 @@
-import styles from "../styles/Home.module.css";
+import {header} from '../styles/styles.module.css'
 
 export default function QuoteHeader() {
     return (
         <>
-            <h1 className={styles.title}>
-                Quotes - my header
+            <h1 className={header}>
+                Quotes
             </h1>
         </>
     )

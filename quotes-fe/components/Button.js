@@ -1,8 +1,7 @@
-import styles from "../styles/Home.module.css";
-
+import {button} from '../styles/styles.module.css'
 export default function Button({onPress, value}) {
     return (
-        <button type="button" onClick={onPress} className={styles.card}>
+        <button type="button" onClick={onPress} className={button} >
             {value}
         </button>
     )
