@@ -2,7 +2,7 @@ import QuotesAllCategories from "../../components/quotes-all-catgories";
 import {useState} from "react";
 import Button from "../../components/Button";
 import QuotesByCategories from "../../components/quotes-by-categories";
-import {catToolBar,upArrow,downArrow} from "../../styles/styles.module.css"
+import {catToolBar,upArrow,downArrow,button} from "../../styles/styles.module.css"
 import Image from "next/image";
 
 export default function AllQuotes() {
@@ -23,7 +23,7 @@ export default function AllQuotes() {
             <title>All Quotes</title>
             <ul className={catToolBar}>
                 {cat.map((val) => (
-                    <li key={val} >
+                    <li key={val} className={button}>
                         <Button value={val} onPress={
                             () => {
                                 setCurrCategories(val);
@@ -32,7 +32,7 @@ export default function AllQuotes() {
                     </li>
                 ))}
 
-                <li >
+                <li className={button}>
                     <Button value={"all quotes"} onPress={
                         () => {
                             setCurrCategories(cat);
@@ -43,6 +43,7 @@ export default function AllQuotes() {
 
             </ul>
             <>
+                <br></br>
                 <Button value={<Image src={"/arrow_down.png"} alt="arrow" width="64" height="60" className={upArrow}/>} onPress={
                     () => {
                         setCurrOrder("/ASC")

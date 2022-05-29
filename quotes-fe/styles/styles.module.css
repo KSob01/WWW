@@ -1,60 +1,67 @@
-.navBar{
+.navBar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333333;
 }
-.navBar li{
+
+.navBar li {
     float: left;
 }
-.navBar li a{
+
+.buttonNav {
     display: block;
     color: white;
     text-align: center;
-    padding: 16px;
-    font-size: 28px;
+    padding: 10px;
+    font-size: 40px;
     text-decoration: none;
 }
 
-.navBar li a:focus,
-.navBar li a:hover {
+.buttonNav:focus,
+.buttonNav:hover {
     background-color: #2d2a2a;
 }
 
-.footer{
+.footer {
     display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-.header{
+.header {
     display: flex;
     flex: 1;
     justify-content: center;
     align-items: center;
-    font-size:5em;
+    font-size: 5em;
 }
-.quoteFrame{
+
+.quoteFrame {
     font-size: 2.3em;
     text-align: center;
     border-style: double;
     margin-right: 3em;
     margin-left: 3em;
+    padding: 1.5em 1em;
 }
-.catToolBar{
+
+.catToolBar {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #933333;
 }
-.catToolBar li{
+
+.catToolBar li {
     float: left;
-    flex:1;
+    flex: 1;
 }
-.catToolBar li button{
+
+.catToolBar li button {
     display: block;
     border: none;
     background-color: inherit;
@@ -65,36 +72,35 @@
     color: white;
     text-decoration: none;
 }
+
 .button:focus,
 .button:hover {
     background-color: #333333;
 }
-.userImage{
+
+.userImage {
     filter: invert(100%);
     float: right;
     cursor: pointer;
 }
 
 .userImage:focus,
-.userImage:hover {;
+.userImage:hover {
     filter: invert(0%);
 }
-.upArrow{
+
+.upArrow {
     transform: rotate(180deg);
-    background-color: white;
     cursor: pointer;
-}
-.upArrow:focus,
-.upArrow:hover{
-    background-color: white;
-}
-.downArrow{
-    background-color: white;
-    cursor: pointer;
+    float: right;
 }
 
-.downArrow:focus,
-.downArrow:hover{
-    background-color: white;
-
+.downArrow {
+    cursor: pointer;
+    float: right;
 }
+
+.dottedLine {
+    border-top: 3px dotted #933333;
+}
+
