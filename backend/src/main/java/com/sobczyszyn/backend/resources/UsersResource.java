@@ -5,14 +5,12 @@ import com.sobczyszyn.backend.exceptions.MyUserNotFoundException;
 import com.sobczyszyn.backend.repostitories.UserRepository;
 import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
+@RestController
+@CrossOrigin(origins = "*")
 public class UsersResource {
     private final UserRepository repositoryUsers;
 
@@ -31,7 +29,7 @@ public class UsersResource {
                 .orElseThrow(() -> new MyUserNotFoundException(id));
     }
     @PostMapping("/users")
-    ResponseEntity<String> addUser(@Valid @RequestBody User user) {
+    ResponseEntity<String> addUser(@Valid @RequestBody MyUser user) {
         return ResponseEntity.ok("User is valid");
     }
 }
