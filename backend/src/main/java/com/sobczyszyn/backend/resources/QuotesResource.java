@@ -6,6 +6,7 @@ import com.sobczyszyn.backend.repostitories.QuoteRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -51,6 +52,13 @@ public class QuotesResource {
     @GetMapping("/quotes-by-categories")
     List<MyQuote> byCategories(@RequestParam(name = "cat") List<String> categories) {
         return repositoryQuotes.findAllByCategories(categories);
+    }
+    @GetMapping("/rand")
+    List<MyQuote> randomQuote() {
+        List<MyQuote> list= repositoryQuotes.findAll();
+        Random rand = new Random();
+        MyQuote randomElement = list.get(rand.nextInt(list.size()));
+        return List.of(randomElement);
     }
 
     @GetMapping("/categories")

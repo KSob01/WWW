@@ -3,7 +3,6 @@ package com.sobczyszyn.backend.resources;
 import com.sobczyszyn.backend.MyUser;
 import com.sobczyszyn.backend.exceptions.MyUserNotFoundException;
 import com.sobczyszyn.backend.repostitories.UserRepository;
-import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +29,7 @@ public class UsersResource {
     }
     @PostMapping("/users")
     ResponseEntity<String> addUser(@Valid @RequestBody MyUser user) {
+        repositoryUsers.save(user);
         return ResponseEntity.ok("User is valid");
     }
 }

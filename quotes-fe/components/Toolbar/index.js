@@ -18,14 +18,14 @@ export default function Toolbar() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/quote-of-the-day">
-                        <a className={buttonNav}>QUOTE OF THE DAY</a>
+                    <Link href="/rand-quote">
+                        <a className={buttonNav}>RANDOM QUOTE</a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/my-quotes">
                         <a>
-                            <Image src="/user-icon.png" alt="user" width="64" height="60"  className={userImage}/>
+                            <Image src="/user-icon.png" alt="user" width="75%" height="75%"  className={userImage}/>
                         </a>
 
                     </Link>

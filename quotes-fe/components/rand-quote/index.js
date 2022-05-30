@@ -1,13 +1,14 @@
 import {GetQuoteHTTP} from "../QuotesGet";
 import QuoteFrame from "../QuoteFrame";
 
-export default function QuotesByCategories({categories, order = ""}) {
-    const s = GetQuoteHTTP(`/quotes-by-categories${order}?cat=${categories}`)
+export default function RandQuote({faker}) {
+    const s = GetQuoteHTTP(`/rand?id=${faker}`)
     return (
         <>
             {s.map((val, i) =>
                 <QuoteFrame key={val['id']} quote={val}/>
             )}
         </>
-    );
+
+    )
 }
