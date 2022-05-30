@@ -13,21 +13,19 @@ import java.util.List;
 @Component
 public class DatabaseLoader implements CommandLineRunner {
 
-    private final UserRepository userRepository;
     private final QuoteRepository quoteRepository;
 
     @Autowired
-    public DatabaseLoader(UserRepository userRepository,QuoteRepository quoteRepository) {
-        this.userRepository = userRepository;
+    public DatabaseLoader(QuoteRepository quoteRepository) {
         this.quoteRepository = quoteRepository;
     }
 
     @Override
-    public void run(String... strings){
+    public void run(String... strings) {
         InputStream is = getClass().getClassLoader().getResourceAsStream("my_quotes.csv");
         List<MyQuote> l = QuoteHelper.csvToQuotes(is);
-        for(MyQuote quote : l){
-            this.quoteRepository.save(new MyQuote(quote.getQuote(),quote.getAuthor(),quote.getCategory()));
+        for (MyQuote quote : l) {
+            this.quoteRepository.save(new MyQuote(quote.getQuote(), quote.getAuthor(), quote.getCategory()));
         }
 
     }
