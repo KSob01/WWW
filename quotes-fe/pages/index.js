@@ -1,33 +1,17 @@
-
-import {useState} from "react";
-import Image from "next/image";
-import {reload} from "../styles/styles.module.css"
-import RandQuote from "../components/rand-quote";
-
+import {pageHeader} from "../styles/styles.module.css"
+import Quote from "../components/quote";
 
 export default function Home() {
-    const [counter, setCounter] = useState(0)
-
-    const View = () => {
-        return <RandQuote faker={counter}/>
-    }
 
     return (
         <>
-            <title>All Quotes</title>
-
-            <>
-                <br></br>
-                <button
-                    onClick={
-                        () => {
-                            setCounter(counter + 1)
-                        }
-                    }><Image src={"/reload.ico"} alt="user" width="75%" height="75%" className={reload}/></button>
-            </>
-
-
-            <>{View()}</>
+            <title>Home</title>
+            <h1 className={pageHeader}>
+                Our favorite educative quotes:
+            </h1>
+            <Quote id={55}/>
+            <Quote id={54}/>
+            <Quote id={27}/>
         </>
 
     )

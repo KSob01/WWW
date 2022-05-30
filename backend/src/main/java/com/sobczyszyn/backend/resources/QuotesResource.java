@@ -65,4 +65,6 @@ public class QuotesResource {
     List<String> allCategories() {
         return repositoryQuotes.findAllCategories();
     }
+
+
 }
