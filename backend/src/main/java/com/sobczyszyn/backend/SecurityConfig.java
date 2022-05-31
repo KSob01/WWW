@@ -8,7 +8,6 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -18,7 +17,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/user/**").authenticated()
-                .antMatchers("/users/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .logout()

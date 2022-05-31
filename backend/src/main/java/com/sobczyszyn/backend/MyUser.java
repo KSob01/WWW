@@ -1,8 +1,6 @@
 package com.sobczyszyn.backend;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -10,6 +8,7 @@ public class MyUser {
     private @Id
     @GeneratedValue
     Long id;
+    @Column(unique = true)
     private String login;
     private String password;
 

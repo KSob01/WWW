@@ -1,23 +1,27 @@
 import {form, formGroup, header, input, btn, baseContainer} from "../../styles/user.module.css"
-import {useEffect, useState} from "react";
-// import base64 from 'react-native-base64'
-import {GetQuoteHTTP} from "../QuotesGet";
-
+import {useState} from "react";
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 
 
 export default function Login() {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    function PostUser(log, pas) {
-        fetch('http://localhost:8080/users', {
-            headers: {
-                'Authorization': 'Basic bG9naTpwYXM='
-            }
-        })
-            .then(response => {
-                console.log("KAsia",response.json());
-            })
 
+    function PostUser(log, pas) {
+        fetch('http://localhost:8080/user', {
+            headers: {
+                'Authorization': 'Basic ' + base64_encode(log + ":" + pas)
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                console.log('Fetch was successful', response);
+                return response;
+            } else {
+                throw Error(response.statusText);
+            }
+        }).catch(function (err) {
+            console.log('Fetch failed', err.response);
+        });
         console.log(log, pas)
 
     }
@@ -38,7 +42,9 @@ export default function Login() {
                 </div>
 
             </div>
-            <button type="button" className={btn} onClick={() => {PostUser(login, password)}}>
+            <button type="button" className={btn} onClick={() => {
+                PostUser(login, password)
+            }}>
                 Login
             </button>
             <div>

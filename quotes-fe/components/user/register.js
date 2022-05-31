@@ -4,6 +4,27 @@ import {useState} from "react";
 export default function Register() {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
+    const [logged,setLogged ] = useState(false)
+
+    function PostUser(log, pas) {
+        fetch('http://localhost:8080/users', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({
+                "login":log,
+                "password":pas
+            })
+        }).then(response => {
+                console.log(response);
+            })
+
+        console.log(log, pas)
+
+    }
+
     return (
         <div className={baseContainer}>
             <div className={header}>Register</div>
@@ -18,7 +39,9 @@ export default function Register() {
                     <input type="password" name="password" placeholder="password" className={input}
                            onChange={e => setPassword(e.target.value)}/>
                 </div>
-                <button type="button" className={btn}>
+                <button type="button" className={btn} onClick={() => {
+                    PostUser(login, password)
+                }}>
                     Sign up
                 </button>
             </div>
