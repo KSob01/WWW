@@ -11,16 +11,16 @@ public class MyUser {
     @GeneratedValue
     Long id;
     private String login;
-    private String email;
     private String password;
+
     public MyUser() {
     }
 
-    public MyUser(String login, String email, String password) {
+    public MyUser(String login, String password) {
         this.login = login;
-        this.email = email;
         this.password = password;
     }
+
 
     public Long getId() {
         return id;
@@ -38,17 +38,10 @@ public class MyUser {
         this.login = login;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
+
 
     public void setPassword(String password) {
         this.password = password;
@@ -59,12 +52,12 @@ public class MyUser {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MyUser myUser = (MyUser) o;
-        return Objects.equals(id, myUser.id) && Objects.equals(login, myUser.login) && Objects.equals(email, myUser.email) && Objects.equals(password, myUser.password);
+        return Objects.equals(id, myUser.id) && Objects.equals(login, myUser.login) && Objects.equals(password, myUser.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, email, password);
+        return Objects.hash(id, login, password);
     }
 
     @Override
@@ -72,7 +65,6 @@ public class MyUser {
         return "MyUser{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
-                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
