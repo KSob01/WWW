@@ -1,7 +1,7 @@
-import QuotesAllCategories from "../../components/quotes-all-catgories";
+import QuotesAllCategories from "../../components/QuoteAllCategories";
 import {useState} from "react";
 import Button from "../../components/Button";
-import QuotesByCategories from "../../components/quotes-by-categories";
+import QuotesByCategories from "../../components/QuotesByCathegories";
 import {catToolBar,upArrow,downArrow,button} from "../../styles/styles.module.css"
 import Image from "next/image";
 

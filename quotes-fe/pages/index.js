@@ -1,5 +1,5 @@
 import {pageHeader} from "../styles/styles.module.css"
-import Quote from "../components/quote";
+import Quote from "../components/Quote";
 
 export default function Home() {
 

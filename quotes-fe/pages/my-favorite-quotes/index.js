@@ -1,6 +1,5 @@
 import {pageHeader} from "../../styles/styles.module.css"
-import Quote from "../../components/quote";
-import Image from "next/image";
+import Quote from "../../components/Quote";
 
 export default function Home() {
 

@@ -1,4 +1,4 @@
-import RandQuote from "../../components/rand-quote";
+import RandQuote from "../../components/RandQuote";
 import {pageHeader, reload} from "../../styles/styles.module.css"
 import {useState} from "react";
 import Image from "next/image";

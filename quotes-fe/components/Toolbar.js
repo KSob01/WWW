@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import {navBar} from '../../styles/styles.module.css'
+import {navBar} from '../styles/styles.module.css'
 import Image from "next/image";
-import {userImage,buttonNav} from "../../styles/styles.module.css"
+import {userImage,buttonNav} from "../styles/styles.module.css"
 
 export default function Toolbar() {
     return (
