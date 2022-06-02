@@ -8,7 +8,7 @@ export default function Login() {
     const [password, setPassword] = useState("")
 
     function PostUser(log, pas) {
-        fetch('http://localhost:8080/user', {
+        fetch('http://localhost:8080/user/login', {
             headers: {
                 'Authorization': 'Basic ' + base64_encode(log + ":" + pas)
             }

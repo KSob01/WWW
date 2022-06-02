@@ -7,7 +7,7 @@ export default function Register() {
     const [logged,setLogged ] = useState(false)
 
     function PostUser(log, pas) {
-        fetch('http://localhost:8080/users', {
+        fetch('http://localhost:8080/users/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -19,11 +19,9 @@ public class UsersResource {
         this.repositoryUsers = repositoryUsers;
     }
 
-    @GetMapping("/user")
-    List<MyUser> allUsers() {
-        LOGGER.info("allUsers");
-
-        return repositoryUsers.findAll();
+    @GetMapping("/user/login")
+    ResponseEntity<String> logUser() {
+        return ResponseEntity.ok("User is authenticated");
     }
 
     @GetMapping("/user/{id}")
@@ -34,7 +32,7 @@ public class UsersResource {
                 .orElseThrow(() -> new MyUserNotFoundException(id));
     }
 
-    @PostMapping("/users")
+    @PostMapping("/users/register")
     ResponseEntity<String> addUser(@RequestBody MyUser user) {
         List<MyUser> myUserByLogin = repositoryUsers.findMyUserByLogin(user.getLogin());
         LOGGER.info("addUser:{}", myUserByLogin);
