@@ -4,7 +4,7 @@ import {useState} from "react";
 export default function Register() {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const [logged,setLogged ] = useState(false)
+
 
     function PostUser(log, pas) {
         fetch('http://localhost:8080/users/register', {
@@ -17,11 +17,17 @@ export default function Register() {
                 "login":log,
                 "password":pas
             })
-        }).then(response => {
-                console.log(response);
-            })
-
-        console.log(log, pas)
+        }).then(function (response) {
+            if (response.ok) {
+                // console.log('Fetch was successful', response);
+                return response;
+            } else {
+                throw Error(response.statusText);
+            }
+        }).catch(function (err) {
+            // console.log('Fetch failed', err.response);
+            console.clear()
+        });
 
     }
 
