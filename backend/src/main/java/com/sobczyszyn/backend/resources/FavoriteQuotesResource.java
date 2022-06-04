@@ -1,7 +1,6 @@
 package com.sobczyszyn.backend.resources;
 
-import com.sobczyszyn.backend.FavoriteQuotes;
-import com.sobczyszyn.backend.MyQuote;
+import com.sobczyszyn.backend.entities.FavoriteQuotes;
 import com.sobczyszyn.backend.repostitories.FavoriteQuotesRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

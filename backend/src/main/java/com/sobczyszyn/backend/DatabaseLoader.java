@@ -1,5 +1,6 @@
 package com.sobczyszyn.backend;
 
+import com.sobczyszyn.backend.entities.MyQuote;
 import com.sobczyszyn.backend.repostitories.QuoteRepository;
 import com.sobczyszyn.backend.utils.QuoteHelper;
 import org.springframework.beans.factory.annotation.Autowired;

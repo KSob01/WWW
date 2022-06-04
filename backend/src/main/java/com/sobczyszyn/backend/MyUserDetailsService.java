@@ -1,10 +1,9 @@
 package com.sobczyszyn.backend;
 
+import com.sobczyszyn.backend.entities.MyUser;
+import com.sobczyszyn.backend.exceptions.MyUserAlreadyExistsException;
 import com.sobczyszyn.backend.exceptions.MyUserNotFoundException;
 import com.sobczyszyn.backend.repostitories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,23 +29,25 @@ public class MyUserDetailsService implements UserDetailsService {
         }
         return new MyUserPrincipal(user.get(0));
     }
+
     @Transactional
-    public  MyUser getUser(Long id){
+    public MyUser getUser(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new MyUserNotFoundException(id));
     }
-    @Transactional
-    public ResponseEntity<String> addUser(MyUser user){
-        try {
-            userRepository.save(user);
-        }catch (RuntimeException e){
-            ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
 
-        return ResponseEntity.ok("User is valid");
-    }
     @Transactional
-    public ResponseEntity<String> logUser(){
-        return ResponseEntity.ok("User is authenticated");
+    public String addUser(MyUser user) {
+        if (userRepository.findMyUserByLogin(user.getLogin()).isEmpty()) {
+            userRepository.save(user);
+        } else {
+            throw new MyUserAlreadyExistsException();
+        }
+        return"User is valid";
+    }
+
+    @Transactional
+    public String logUser() {
+        return "User is authenticated";
     }
 }

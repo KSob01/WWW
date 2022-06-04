@@ -1,8 +1,7 @@
 package com.sobczyszyn.backend.repostitories;
 
-import com.sobczyszyn.backend.MyUser;
+import com.sobczyszyn.backend.entities.MyUser;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

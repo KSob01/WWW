@@ -16,15 +16,16 @@ export default function Login({loginStatus}) {
             }
         }).then(function (response) {
             if (response.ok) {
-                // console.log('Fetch was successful', response);
+                console.log('Fetch was successful', response);
                 setLogged(true);
                 return response;
             } else {
                 setLogged(false)
                 throw Error(response.statusText);
             }
-        }).catch(() =>
-            console.clear()
+        }).catch((reason) =>
+            // console.clear()
+            console.log(reason)
         );
         setTriedLogin(true);
 

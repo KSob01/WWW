@@ -1,6 +1,6 @@
 package com.sobczyszyn.backend.repostitories;
 
-import com.sobczyszyn.backend.MyQuote;
+import com.sobczyszyn.backend.entities.MyQuote;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

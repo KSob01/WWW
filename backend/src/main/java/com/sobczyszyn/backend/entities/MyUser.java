@@ -1,4 +1,4 @@
-package com.sobczyszyn.backend;
+package com.sobczyszyn.backend.entities;
 
 import javax.persistence.*;
 import java.util.Objects;

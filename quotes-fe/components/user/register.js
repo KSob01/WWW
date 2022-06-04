@@ -19,14 +19,14 @@ export default function Register() {
             })
         }).then(function (response) {
             if (response.ok) {
-                // console.log('Fetch was successful', response);
+                console.log('Fetch was successful', response);
                 return response;
             } else {
                 throw Error(response.statusText);
             }
         }).catch(function (err) {
             // console.log('Fetch failed', err.response);
-            console.clear()
+            // console.clear()
         });
 
     }

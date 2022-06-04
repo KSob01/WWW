@@ -1,5 +1,6 @@
 package com.sobczyszyn.backend;
 
+import com.sobczyszyn.backend.entities.MyUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,6 +1,6 @@
 package com.sobczyszyn.backend.resources;
 
-import com.sobczyszyn.backend.MyQuote;
+import com.sobczyszyn.backend.entities.MyQuote;
 import com.sobczyszyn.backend.exceptions.MyQuoteNotFoundException;
 import com.sobczyszyn.backend.repostitories.QuoteRepository;
 import org.springframework.web.bind.annotation.*;
