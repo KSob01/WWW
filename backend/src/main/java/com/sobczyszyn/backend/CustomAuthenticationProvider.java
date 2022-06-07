@@ -9,7 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
+
 import javax.annotation.Resource;
 
 @Component
@@ -22,7 +23,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication)
             throws AuthenticationException {
         final String username = (authentication.getPrincipal() == null) ? "NONE_PROVIDED" : authentication.getName();
-        if (StringUtils.isEmpty(username)) {
+        String password = authentication.getCredentials().toString();
+        if (ObjectUtils.isEmpty(username)) {
             throw new BadCredentialsException("invalid login details");
         }
         UserDetails user;
@@ -32,6 +34,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         } catch (UsernameNotFoundException exception) {
             throw new BadCredentialsException("invalid login details");
         }
+        if (!user.getPassword().equals(password))
+            throw new BadCredentialsException("invalid login details");
         return createSuccessfulAuthentication(authentication, user);
     }
 

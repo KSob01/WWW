@@ -1,22 +1,22 @@
 package com.sobczyszyn.backend;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomAuthenticationProvider authProvider;
+    private final MyBasicAuthenticationEntryPoint authenticationEntryPoint;
 
-    public SecurityConfig(CustomAuthenticationProvider authProvider) {
+    public SecurityConfig(CustomAuthenticationProvider authProvider, MyBasicAuthenticationEntryPoint authenticationEntryPoint) {
         this.authProvider = authProvider;
+        this.authenticationEntryPoint = authenticationEntryPoint;
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
@@ -35,10 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll()
                 .and()
-
                 .exceptionHandling()
-
-                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
+                .authenticationEntryPoint(authenticationEntryPoint);
         http.cors();
 
     }

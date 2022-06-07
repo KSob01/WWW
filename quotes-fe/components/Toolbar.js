@@ -1,18 +1,18 @@
 import Link from 'next/link';
 import {navBar} from '../styles/styles.module.css'
 import Image from "next/image";
-import {userImage,buttonNav} from "../styles/styles.module.css"
+import {userImage, buttonNav, buttonsRight} from "../styles/styles.module.css"
 
 export default function Toolbar() {
     return (
-        <nav >
+        <nav>
             <ul className={navBar}>
-                <li >
-                    <Link href="/" className={buttonNav}>
+                <li>
+                    <Link href="/">
                         <a className={buttonNav}>HOME</a>
                     </Link>
                 </li>
-                <li >
+                <li>
                     <Link href="/all-quotes">
                         <a className={buttonNav}>ALL QUOTES</a>
                     </Link>
@@ -22,15 +22,32 @@ export default function Toolbar() {
                         <a className={buttonNav}>RANDOM QUOTE</a>
                     </Link>
                 </li>
-                <li>
-                    <Link href="/my-quotes">
-                        <a>
-                            <Image src="/user-icon.png" alt="user" width="75%" height="75%"  className={userImage}/>
-                        </a>
 
-                    </Link>
+                <div className={buttonsRight}>
+                    <li>
+                        <Link href="/my-quotes">
+                            <a>
+                                <Image src="/user-icon.png" alt="user" width="75%" height="75%" className={userImage}/>
+                            </a>
 
-                </li>
+                        </Link>
+
+                    </li>
+                    <li>
+                        <Link href={"/login"}>
+                            <a className={buttonNav}>
+                                Login
+                            </a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href={"/register"}>
+                            <a className={buttonNav}>
+                                Register
+                            </a>
+                        </Link>
+                    </li>
+                </div>
             </ul>
         </nav>
 
