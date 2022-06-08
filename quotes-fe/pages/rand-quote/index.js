@@ -2,12 +2,13 @@ import RandQuote from "../../components/RandQuote";
 import {pageHeader, reload} from "../../styles/styles.module.css"
 import {useState} from "react";
 import Image from "next/image";
+import {Parallax} from "react-scroll-parallax";
 
 export default function QuoteOfTheDay() {
     const [counter, setCounter] = useState(0)
 
     const View = () => {
-        return <RandQuote faker={counter}/>
+        return <Parallax speed={-8}><RandQuote faker={counter}/></Parallax>
     }
 
     return (

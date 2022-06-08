@@ -3,7 +3,8 @@ import Lines from "./Lines";
 
 export default function QuoteFooter() {
     return (
-        <>            <Lines/>
+        <>
+            <Lines/>
             <h1 className={footer}>
                 Project - Katarzyna Sobczyszyn, June 2022
             </h1>

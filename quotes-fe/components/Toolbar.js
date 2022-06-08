@@ -27,7 +27,8 @@ export default function Toolbar() {
                     <li>
                         <Link href="/my-quotes">
                             <a>
-                                <Image src="/user-icon.png" alt="user" width="75%" height="75%" className={userImage}/>
+                                <Image src="/user-icon.png" alt="user" width="75%" height="75%"
+                                       className={userImage}/>
                             </a>
 
                         </Link>
@@ -50,7 +51,5 @@ export default function Toolbar() {
                 </div>
             </ul>
         </nav>
-
-
     )
 }

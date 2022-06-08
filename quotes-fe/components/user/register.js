@@ -1,10 +1,30 @@
-import {form, formGroup,header,input,btn,baseContainer} from "../../styles/user.module.css"
+import {form, formGroup, header, input, btn, baseContainer, errorInfo} from "../../styles/user.module.css"
 import {useState} from "react";
 
 export default function Register() {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
+    const [logged, setLogged] = useState(false)
+    const [triedLogin, setTriedLogin] = useState(false)
 
+    function AfterRegistration() {
+        if (triedLogin) {
+            if (logged) {
+                return (
+                    <>
+                        <h2>
+                            Registration successful
+                        </h2>
+                    </>)
+            } else {
+                return (
+                    <h2 className={errorInfo}>
+                        Registration unsuccessful
+                    </h2>)
+            }
+        }
+        return <></>
+    }
 
     function PostUser(log, pas) {
         fetch('http://localhost:8080/users/register', {
@@ -13,21 +33,24 @@ export default function Register() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify({
-                "login":log,
-                "password":pas
+            body: JSON.stringify({
+                "login": log,
+                "password": pas
             })
         }).then(function (response) {
             if (response.ok) {
                 console.log('Fetch was successful', response);
+                setLogged(true);
                 return response;
             } else {
+                setLogged(false)
                 throw Error(response.statusText);
             }
         }).catch(function (err) {
             // console.log('Fetch failed', err.response);
-            // console.clear()
+            console.clear()
         });
+        setTriedLogin(true);
 
     }
 
@@ -51,8 +74,7 @@ export default function Register() {
                     Sign up
                 </button>
             </div>
-            <div >
-            </div>
+            {AfterRegistration()}
         </div>
     );
 }

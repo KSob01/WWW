@@ -2,8 +2,9 @@ import QuotesAllCategories from "../../components/QuoteAllCategories";
 import {useState} from "react";
 import Button from "../../components/Button";
 import QuotesByCategories from "../../components/QuotesByCathegories";
-import {catToolBar,upArrow,downArrow,button} from "../../styles/styles.module.css"
+import {catToolBar, upArrow, downArrow, button} from "../../styles/styles.module.css"
 import Image from "next/image";
+import {Parallax} from "react-scroll-parallax";
 
 export default function AllQuotes() {
     const cat = QuotesAllCategories()
@@ -20,6 +21,7 @@ export default function AllQuotes() {
 
     return (
         <>
+
             <title>All Quotes</title>
             <ul className={catToolBar}>
                 {cat.map((val) => (
@@ -42,23 +44,26 @@ export default function AllQuotes() {
 
 
             </ul>
+
             <>
                 <br></br>
-                <Button value={<Image src={"/arrow_down.png"} alt="arrow" width="64" height="60" className={upArrow}/>} onPress={
-                    () => {
-                        setCurrOrder("/ASC")
-                    }
-                }/>
-                <Button value={<Image src={"/arrow_down.png"} alt="arrow" width="64" height="60" className={downArrow}/>} onPress={
-                    () => {
-                        setCurrOrder("/DESC")
-                    }
-                }/>
+                <Parallax speed={-4}>
+                <Button value={<Image src={"/arrow_down.png"} alt="arrow" width="64" height="60" className={upArrow}/>}
+                        onPress={
+                            () => {
+                                setCurrOrder("/ASC")
+                            }
+                        }/>
+                <Button
+                    value={<Image src={"/arrow_down.png"} alt="arrow" width="64" height="60" className={downArrow}/>}
+                    onPress={
+                        () => {
+                            setCurrOrder("/DESC")
+                        }
+                    }/>
+                </Parallax>
             </>
-
-
-
-            <>{View()}</>
+                <>{View()}</>
         </>
 
     )

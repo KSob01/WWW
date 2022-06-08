@@ -1,8 +1,9 @@
-import {quoteFrame,heart} from "../styles/styles.module.css";
+import {quoteFrame, heart} from "../styles/styles.module.css";
 import Image from "next/image";
+import {Parallax} from "react-scroll-parallax";
 
-export default function QuoteFrame({quote}){
-    return(
+export default function QuoteFrame({quote}) {
+    return (
 
         <div className={quoteFrame}>
             <h1>
@@ -13,8 +14,9 @@ export default function QuoteFrame({quote}){
                 </>
 
             </h1>
-            <Image src={"/heart.png"} alt="user" width="64" height="60" className={heart}/>
-
+            <Parallax speed={3}>
+                <Image src={"/heart.png"} alt="user" width="64" height="60" className={heart}/>
+            </Parallax>
         </div>
     )
 }
