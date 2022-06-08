@@ -1,13 +1,13 @@
 import Layout from "../components/Layout";
-import { UserProvider } from '@auth0/nextjs-auth0';
+import {ParallaxProvider} from "react-scroll-parallax";
+
 function MyApp({Component, pageProps}) {
-    const { user } = pageProps;
-  return(
-    <Layout>
-        {/*<UserProvider user={user}>*/}
-         <Component {...pageProps} />
-        {/*</UserProvider>*/}
-    </Layout>)
+    return (
+        <Layout>
+            <ParallaxProvider>
+                <Component {...pageProps} />
+            </ParallaxProvider>
+        </Layout>)
 }
 
 export default MyApp

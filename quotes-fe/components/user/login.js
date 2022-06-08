@@ -3,14 +3,15 @@ import {useState} from "react";
 import {encode as base64_encode} from 'base-64';
 import {errorInfo} from "../../styles/user.module.css"
 
-export default function Login({loginStatus}) {
+export default function Login() {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const [logged, setLogged] = useState(loginStatus)
+    const [logged, setLogged] = useState(false)
     const [triedLogin, setTriedLogin] = useState(false)
 
     function GetAuth(log, pas) {
         fetch('http://localhost:8080/user/login', {
+            method: 'GET',
             headers: {
                 'Authorization': 'Basic ' + base64_encode(log + ":" + pas)
             }
@@ -24,8 +25,8 @@ export default function Login({loginStatus}) {
                 throw Error(response.statusText);
             }
         }).catch((reason) =>
-            // console.clear()
-            console.log(reason)
+                console.clear()
+            // console.log(reason)
         );
         setTriedLogin(true);
 
@@ -36,48 +37,45 @@ export default function Login({loginStatus}) {
             if (logged) {
                 return (
                     <>
-                    <h2>
-                    Login successful
-                </h2>
-                </>)}
-            else
-                {
-                    return (
-                        <h2 className={errorInfo}>
-                            Login unsuccessful
-                        </h2>)
-                }
+                        <h2>
+                            Login successful
+                        </h2>
+                    </>)
+            } else {
+                return (
+                    <h2 className={errorInfo}>
+                        Login unsuccessful
+                    </h2>)
             }
-            return <></>
         }
+        return <></>
+    }
 
 
-        return (
-            <div className={baseContainer}>
-                <div className={header}>Login</div>
-                <div className={form}>
-                    <div className={formGroup}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" name="username" placeholder="username" className={input}
-                               onChange={e => setLogin(e.target.value)}/>
-                    </div>
-
-                    <div className={formGroup}>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" name="password" placeholder="password" className={input}
-                               onChange={e => setPassword(e.target.value)}/>
-                    </div>
-
+    return (
+        <div className={baseContainer}>
+            <div className={header}>Login</div>
+            <div className={form}>
+                <div className={formGroup}>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" placeholder="username" className={input}
+                           onChange={e => setLogin(e.target.value)}/>
                 </div>
-                <button type="button" className={btn} onClick={() => {
-                    GetAuth(login, password)
-                }}>
-                    Login
-                </button>
-                <div>
-                    {AfterLogin()}
+
+                <div className={formGroup}>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" placeholder="password" className={input}
+                           onChange={e => setPassword(e.target.value)}/>
                 </div>
 
             </div>
-        );
-    }
+            <button type="button" className={btn} onClick={() => {
+                GetAuth(login, password)
+            }}>
+                Login
+            </button>
+            {AfterLogin()}
+
+        </div>
+    );
+}
